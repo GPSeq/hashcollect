@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
-project(hashlab20 LANGUAGES CXX)
+project(hashcollect LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_library(hashlab20
+add_library(hashcollect
   src/hash_fnv1a32.cpp
   src/hash_fnv1a64.cpp
   src/hash_djb2.cpp

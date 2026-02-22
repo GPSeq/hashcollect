@@ -1,0 +1,4 @@
+/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles/hashcollect.dir
+/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles/hashcollect_demo.dir
+/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles/rebuild_cache.dir

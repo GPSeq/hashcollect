@@ -30,11 +30,13 @@ add_library(hashcollect
 
 target_include_directories(hashcollect PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-add_executable(hashcollect apps/main.cpp)
-target_link_libraries(hashcollect PRIVATE hashcollect)
+add_executable(hashcollect_demo apps/main.cpp)
+target_link_libraries(hashcollect_demo PRIVATE hashcollect)
 
 if (MSVC)
   target_compile_options(hashcollect PRIVATE /W4 /permissive-)
+  target_compile_options(hashcollect_demo PRIVATE /W4 /permissive-)
 else()
   target_compile_options(hashcollect PRIVATE -Wall -Wextra -Wpedantic)
+  target_compile_options(hashcollect_demo PRIVATE -Wall -Wextra -Wpedantic)
 endif()

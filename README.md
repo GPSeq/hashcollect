@@ -91,3 +91,5 @@ SHA-256
   float: 0xf1af6ed5ca0314eaaccafa1bb8b213e19029ad6720a86c5f65f4a9df137e430a
   str  : 0x1e976226fbce9774aab5dcd3548f8a9d9ae21c57f2b2d0a82579ea4523915714
 ```
+
+**Please note the license from the sources (included in the code).**

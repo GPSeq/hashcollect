@@ -646,6 +646,30 @@ src/hash_xxhash64.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect.dir/build.make CMakeFiles/hashcollect.dir/src/hash_xxhash64.cpp.s
 .PHONY : src/hash_xxhash64.cpp.s
 
+src/rolling_hash.o: src/rolling_hash.cpp.o
+.PHONY : src/rolling_hash.o
+
+# target to build an object file
+src/rolling_hash.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect.dir/build.make CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o
+.PHONY : src/rolling_hash.cpp.o
+
+src/rolling_hash.i: src/rolling_hash.cpp.i
+.PHONY : src/rolling_hash.i
+
+# target to preprocess a source file
+src/rolling_hash.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect.dir/build.make CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.i
+.PHONY : src/rolling_hash.cpp.i
+
+src/rolling_hash.s: src/rolling_hash.cpp.s
+.PHONY : src/rolling_hash.s
+
+# target to generate assembly for a file
+src/rolling_hash.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect.dir/build.make CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.s
+.PHONY : src/rolling_hash.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -719,6 +743,9 @@ help:
 	@echo "... src/hash_xxhash64.o"
 	@echo "... src/hash_xxhash64.i"
 	@echo "... src/hash_xxhash64.s"
+	@echo "... src/rolling_hash.o"
+	@echo "... src/rolling_hash.i"
+	@echo "... src/rolling_hash.s"
 .PHONY : help
 
 

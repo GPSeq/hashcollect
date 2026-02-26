@@ -349,6 +349,20 @@ CMakeFiles/hashcollect.dir/src/hash_sha256.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashcollect.dir/src/hash_sha256.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/yynk1/Desktop/hashcollect/src/hash_sha256.cpp -o CMakeFiles/hashcollect.dir/src/hash_sha256.cpp.s
 
+CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o: CMakeFiles/hashcollect.dir/flags.make
+CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o: ../src/rolling_hash.cpp
+CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o: CMakeFiles/hashcollect.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o -MF CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o.d -o CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o -c /mnt/c/Users/yynk1/Desktop/hashcollect/src/rolling_hash.cpp
+
+CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/yynk1/Desktop/hashcollect/src/rolling_hash.cpp > CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.i
+
+CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/yynk1/Desktop/hashcollect/src/rolling_hash.cpp -o CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.s
+
 # Object files for target hashcollect
 hashcollect_OBJECTS = \
 "CMakeFiles/hashcollect.dir/src/hash_fnv1a32.cpp.o" \
@@ -370,7 +384,8 @@ hashcollect_OBJECTS = \
 "CMakeFiles/hashcollect.dir/src/hash_buzhash32.cpp.o" \
 "CMakeFiles/hashcollect.dir/src/hash_rabinkarp64.cpp.o" \
 "CMakeFiles/hashcollect.dir/src/hash_md5.cpp.o" \
-"CMakeFiles/hashcollect.dir/src/hash_sha256.cpp.o"
+"CMakeFiles/hashcollect.dir/src/hash_sha256.cpp.o" \
+"CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o"
 
 # External object files for target hashcollect
 hashcollect_EXTERNAL_OBJECTS =
@@ -395,9 +410,10 @@ libhashcollect.a: CMakeFiles/hashcollect.dir/src/hash_buzhash32.cpp.o
 libhashcollect.a: CMakeFiles/hashcollect.dir/src/hash_rabinkarp64.cpp.o
 libhashcollect.a: CMakeFiles/hashcollect.dir/src/hash_md5.cpp.o
 libhashcollect.a: CMakeFiles/hashcollect.dir/src/hash_sha256.cpp.o
+libhashcollect.a: CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o
 libhashcollect.a: CMakeFiles/hashcollect.dir/build.make
 libhashcollect.a: CMakeFiles/hashcollect.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX static library libhashcollect.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX static library libhashcollect.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/hashcollect.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hashcollect.dir/link.txt --verbose=$(VERBOSE)
 

@@ -83,12 +83,12 @@ clean: CMakeFiles/hashcollect_demo.dir/clean
 CMakeFiles/hashcollect.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect.dir/build.make CMakeFiles/hashcollect.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect.dir/build.make CMakeFiles/hashcollect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21 "Built target hashcollect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 "Built target hashcollect"
 .PHONY : CMakeFiles/hashcollect.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hashcollect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hashcollect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles 0
 .PHONY : CMakeFiles/hashcollect.dir/rule
@@ -109,12 +109,12 @@ CMakeFiles/hashcollect.dir/clean:
 CMakeFiles/hashcollect_demo.dir/all: CMakeFiles/hashcollect.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect_demo.dir/build.make CMakeFiles/hashcollect_demo.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hashcollect_demo.dir/build.make CMakeFiles/hashcollect_demo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=22,23 "Built target hashcollect_demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles --progress-num=23,24 "Built target hashcollect_demo"
 .PHONY : CMakeFiles/hashcollect_demo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/hashcollect_demo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles 23
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/hashcollect_demo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/yynk1/Desktop/hashcollect/build/CMakeFiles 0
 .PHONY : CMakeFiles/hashcollect_demo.dir/rule

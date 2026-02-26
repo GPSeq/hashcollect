@@ -26,6 +26,7 @@ add_library(hashcollect
   src/hash_rabinkarp64.cpp
   src/hash_md5.cpp
   src/hash_sha256.cpp
+  src/rolling_hash.cpp
 )
 
 target_include_directories(hashcollect PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

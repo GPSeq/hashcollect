@@ -39,6 +39,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hashcollect.dir/src/hash_xxhash32.cpp.o.d"
   "CMakeFiles/hashcollect.dir/src/hash_xxhash64.cpp.o"
   "CMakeFiles/hashcollect.dir/src/hash_xxhash64.cpp.o.d"
+  "CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o"
+  "CMakeFiles/hashcollect.dir/src/rolling_hash.cpp.o.d"
   "libhashcollect.a"
   "libhashcollect.pdb"
 )

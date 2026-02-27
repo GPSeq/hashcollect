@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// Implements a 64-bit Pearson hash.
 #include "hashlab/hash_pearson64.hpp"
 
 namespace hashlab {
@@ -23,6 +24,10 @@ static constexpr std::uint8_t T[256] = {
   43,119,224, 71,122,142, 42,160,104, 48,247,103, 15, 11,138,239
 };
 
+// Computes a 64-bit Pearson hash for the provided message.
+// Example:
+//   auto result = hashlab::pearson64(msg);
+// High level: Computes a 64-bit Pearson hash over the input bytes.
 std::uint64_t pearson64(bytespan msg) noexcept {
   std::uint64_t out = 0;
   for (int j = 0; j < 8; ++j) {

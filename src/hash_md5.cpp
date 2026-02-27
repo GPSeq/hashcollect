@@ -1,10 +1,17 @@
 // SPDX-License-Identifier: MIT
+// Implements the MD5 hash.
 #include "hashlab/hash_md5.hpp"
 
 namespace hashlab {
 
+// Rotates x left by r bits.
+// High level: Rotates a 32-bit value left to mix bits.
 static inline std::uint32_t rotl32(std::uint32_t x, int r) noexcept { return (x << r) | (x >> (32 - r)); }
 
+// Computes the MD5 digest for the provided message.
+// Example:
+//   auto result = hashlab::md5(msg);
+// High level: Computes the MD5 digest for the input bytes.
 std::array<std::uint8_t, 16> md5(bytespan msg) noexcept {
   // RFC 1321 constants
   static constexpr std::uint32_t s[64] = {

@@ -1,10 +1,17 @@
 // SPDX-License-Identifier: MIT
+// Implements xxHash32 (32-bit).
 #include "hashlab/hash_xxhash32.hpp"
 
 namespace hashlab {
 
+// Rotates x left by r bits.
+// High level: Rotates a 32-bit value left to mix bits.
 static inline std::uint32_t rotl32(std::uint32_t x, int r) noexcept { return (x << r) | (x >> (32 - r)); }
 
+// Computes the xxHash32 for the provided message and seed.
+// Example:
+//   auto result = hashlab::xxhash32(msg, seed);
+// High level: Computes a 32-bit xxHash for the input bytes.
 std::uint32_t xxhash32(bytespan msg, std::uint32_t seed) noexcept {
   constexpr std::uint32_t P1 = 0x9E3779B1u;
   constexpr std::uint32_t P2 = 0x85EBCA77u;

@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
+// Implements MurmurHash3 x86 32-bit variant.
 #include "hashlab/hash_murmur3_x86_32.hpp"
 
 namespace hashlab {
 
+// Rotates x left by r bits.
+// High level: Rotates a 32-bit value left to mix bits.
 static inline std::uint32_t rotl32(std::uint32_t x, int r) noexcept {
   return (x << r) | (x >> (32 - r));
 }
+// Finalization mix for 32-bit state.
+// High level: Finalizes 32-bit state by avalanching bits.
 static inline std::uint32_t fmix32(std::uint32_t h) noexcept {
   h ^= h >> 16;
   h *= 0x85ebca6bU;
@@ -15,6 +20,10 @@ static inline std::uint32_t fmix32(std::uint32_t h) noexcept {
   return h;
 }
 
+// Computes the MurmurHash3 x86 32-bit hash for the provided message and seed.
+// Example:
+//   auto result = hashlab::murmur3_x86_32(msg, seed);
+// High level: Computes a 32-bit MurmurHash3 (x86) for the input bytes.
 std::uint32_t murmur3_x86_32(bytespan msg, std::uint32_t seed) noexcept {
   const std::uint8_t* data = reinterpret_cast<const std::uint8_t*>(msg.data());
   const int len = static_cast<int>(msg.size());

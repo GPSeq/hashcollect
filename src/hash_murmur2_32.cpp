@@ -1,8 +1,13 @@
 // SPDX-License-Identifier: MIT
+// Implements MurmurHash2 (32-bit).
 #include "hashlab/hash_murmur2_32.hpp"
 
 namespace hashlab {
 
+// Computes the MurmurHash2 32-bit hash for the provided message and seed.
+// Example:
+//   auto result = hashlab::murmur2_32(msg, seed);
+// High level: Computes a 32-bit MurmurHash2 for the input bytes.
 std::uint32_t murmur2_32(bytespan msg, std::uint32_t seed) noexcept {
 
   constexpr std::uint32_t m = 0x5bd1e995U;

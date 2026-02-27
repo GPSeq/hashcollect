@@ -1,9 +1,14 @@
 // SPDX-License-Identifier: MIT
+// Implements xxHash64 (64-bit).
 #include "hashlab/hash_xxhash64.hpp"
 
 namespace hashlab {
 
+// Rotates x left by r bits.
+// High level: Rotates a 64-bit value left to mix bits.
 static inline std::uint64_t rotl64(std::uint64_t x, int r) noexcept { return (x << r) | (x >> (64 - r)); }
+// Processes one 64-bit chunk into the accumulator.
+// High level: Mixes one 64-bit chunk into the xxHash64 accumulator.
 static inline std::uint64_t xxh64_round(std::uint64_t acc, std::uint64_t input) noexcept {
   constexpr std::uint64_t P1 = 11400714785074694791ULL;
   constexpr std::uint64_t P2 = 14029467366897019727ULL;
@@ -12,6 +17,8 @@ static inline std::uint64_t xxh64_round(std::uint64_t acc, std::uint64_t input) 
   acc *= P1;
   return acc;
 }
+// Merges a lane value into the final accumulator.
+// High level: Merges a lane value into the xxHash64 accumulator.
 static inline std::uint64_t xxh64_merge(std::uint64_t acc, std::uint64_t val) noexcept {
   constexpr std::uint64_t P1 = 11400714785074694791ULL;
   constexpr std::uint64_t P4 = 9650029242287828579ULL;
@@ -20,6 +27,10 @@ static inline std::uint64_t xxh64_merge(std::uint64_t acc, std::uint64_t val) no
   return acc;
 }
 
+// Computes the xxHash64 for the provided message and seed.
+// Example:
+//   auto result = hashlab::xxhash64(msg, seed);
+// High level: Computes a 64-bit xxHash for the input bytes.
 std::uint64_t xxhash64(bytespan msg, std::uint64_t seed) noexcept {
   constexpr std::uint64_t P1 = 11400714785074694791ULL;
   constexpr std::uint64_t P2 = 14029467366897019727ULL;

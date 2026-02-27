@@ -1,16 +1,35 @@
 // SPDX-License-Identifier: MIT
+// Implements the SHA-256 hash.
 #include "hashlab/hash_sha256.hpp"
 
 namespace hashlab {
 
+// SHA-256 helper functions (rotates and boolean mixes).
+// High level: Rotates a 32-bit value right to mix bits.
 static inline std::uint32_t rotr32(std::uint32_t x, int r) noexcept { return (x >> r) | (x << (32 - r)); }
+// ch helper.
+// High level: Combines bits with a choose operation (SHA-256 helper).
 static inline std::uint32_t ch(std::uint32_t x, std::uint32_t y, std::uint32_t z) noexcept { return (x & y) ^ (~x & z); }
+// maj helper.
+// High level: Combines bits with a majority operation (SHA-256 helper).
 static inline std::uint32_t maj(std::uint32_t x, std::uint32_t y, std::uint32_t z) noexcept { return (x & y) ^ (x & z) ^ (y & z); }
+// bsig0 helper.
+// High level: Applies SHA-256 big-sigma-0 mixing.
 static inline std::uint32_t bsig0(std::uint32_t x) noexcept { return rotr32(x, 2) ^ rotr32(x, 13) ^ rotr32(x, 22); }
+// bsig1 helper.
+// High level: Applies SHA-256 big-sigma-1 mixing.
 static inline std::uint32_t bsig1(std::uint32_t x) noexcept { return rotr32(x, 6) ^ rotr32(x, 11) ^ rotr32(x, 25); }
+// ssig0 helper.
+// High level: Applies SHA-256 small-sigma-0 mixing.
 static inline std::uint32_t ssig0(std::uint32_t x) noexcept { return rotr32(x, 7) ^ rotr32(x, 18) ^ (x >> 3); }
+// ssig1 helper.
+// High level: Applies SHA-256 small-sigma-1 mixing.
 static inline std::uint32_t ssig1(std::uint32_t x) noexcept { return rotr32(x, 17) ^ rotr32(x, 19) ^ (x >> 10); }
 
+// Computes the SHA-256 digest for the provided message.
+// Example:
+//   auto result = hashlab::sha256(msg);
+// High level: Computes the SHA-256 digest for the input bytes.
 std::array<std::uint8_t, 32> sha256(bytespan msg) noexcept {
   static constexpr std::uint32_t K[64] = {
     0x428a2f98u,0x71374491u,0xb5c0fbcfu,0xe9b5dba5u,0x3956c25bu,0x59f111f1u,0x923f82a4u,0xab1c5ed5u,

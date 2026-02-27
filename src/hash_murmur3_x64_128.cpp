@@ -1,11 +1,16 @@
 // SPDX-License-Identifier: MIT
+// Implements MurmurHash3 x64 128-bit variant.
 #include "hashlab/hash_murmur3_x64_128.hpp"
 
 namespace hashlab {
 
+// Rotates x left by r bits.
+// High level: Rotates a 64-bit value left to mix bits.
 static inline std::uint64_t rotl64(std::uint64_t x, int r) noexcept {
   return (x << r) | (x >> (64 - r));
 }
+// Finalization mix for 64-bit state.
+// High level: Finalizes 64-bit state by avalanching bits.
 static inline std::uint64_t fmix64(std::uint64_t k) noexcept {
   k ^= k >> 33;
   k *= 0xff51afd7ed558ccdULL;
@@ -15,6 +20,10 @@ static inline std::uint64_t fmix64(std::uint64_t k) noexcept {
   return k;
 }
 
+// Computes the MurmurHash3 x64 128-bit hash for the provided message and seed.
+// Example:
+//   auto result = hashlab::murmur3_x64_128(msg, seed);
+// High level: Computes a 128-bit MurmurHash3 (x64) for the input bytes.
 std::array<std::uint8_t, 16> murmur3_x64_128(bytespan msg, std::uint32_t seed) noexcept {
   const std::uint8_t* data = reinterpret_cast<const std::uint8_t*>(msg.data());
   const int len = static_cast<int>(msg.size());

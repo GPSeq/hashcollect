@@ -1,13 +1,16 @@
 // SPDX-License-Identifier: MIT
+// Implements CRC-64/ECMA checksum.
 #include "hashlab/checksum_crc64_ecma.hpp"
 
 #include <array>
 
 namespace hashlab {
 
-// Reflected polynomial for CRC64-ECMA:
+// Reflected polynomial for CRC-64/ECMA.
 static constexpr std::uint64_t POLY = 0xC96C5795D7870F42ULL;
 
+// Builds the CRC-64 lookup table at compile time.
+// High level: Builds a lookup table for fast checksum updates.
 static constexpr std::array<std::uint64_t, 256> make_table() {
   std::array<std::uint64_t, 256> t{};
   for (std::uint64_t i = 0; i < 256; ++i) {
@@ -19,6 +22,10 @@ static constexpr std::array<std::uint64_t, 256> make_table() {
 }
 static constexpr auto T = make_table();
 
+// Computes the CRC-64/ECMA checksum for the provided message.
+// Example:
+//   auto result = hashlab::crc64_ecma(msg);
+// High level: Computes a CRC-64/ECMA checksum over the input bytes.
 std::uint64_t crc64_ecma(bytespan msg) noexcept {
   std::uint64_t crc = 0xFFFFFFFFFFFFFFFFULL;
   for (std::byte b : msg) {

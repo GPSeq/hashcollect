@@ -24,6 +24,7 @@
 #include "hashlab/hash_pearson64.hpp"
 #include "hashlab/hash_buzhash32.hpp"
 #include "hashlab/hash_rabinkarp64.hpp"
+#include "hashlab/rolling_hash.hpp"
 #include "hashlab/hash_md5.hpp"
 #include "hashlab/hash_sha256.hpp"
 
@@ -105,6 +106,9 @@ int main() {
   //show_u64("RabinKarp64", hashlab::rabinkarp64);
   show_u64("RabinKarp64", [](hashlab::bytespan b) noexcept {
       return hashlab::rabinkarp64(b);
+    });
+  show_u64("RollingHash64", [](hashlab::bytespan b) noexcept {
+      return hashlab::rolling_hash(b);
     });
 
   std::cout << "MD5\n";

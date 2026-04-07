@@ -82,6 +82,10 @@ RabinKarp64
   int  : 0xe4a1de05090bca86
   float: 0xd4308a256157f6c6
   str  : 0x82937cb31436593a
+RollingHash64
+  int  : 0xe4a1de05090bca86
+  float: 0xd4308a256157f6c6
+  str  : 0x82937cb31436593a
 MD5
   int  : 0x623ad5eda301ae082d466141a7f6dcaf
   float: 0xad14c956e63f2313841f85c817947889

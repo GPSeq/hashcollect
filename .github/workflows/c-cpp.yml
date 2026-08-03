@@ -12,17 +12,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      BUILD_DIR: ${{ runner.temp }}/hashcollect-build
 
     steps:
       - uses: actions/checkout@v6
 
       - name: Configure
-        run: cmake -S . -B "$BUILD_DIR" -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B "$RUNNER_TEMP/hashcollect-build" -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
-        run: cmake --build "$BUILD_DIR" --config Release
+        run: cmake --build "$RUNNER_TEMP/hashcollect-build" --config Release
 
       - name: Test
-        run: ctest --test-dir "$BUILD_DIR" --output-on-failure
+        run: ctest --test-dir "$RUNNER_TEMP/hashcollect-build" --output-on-failure

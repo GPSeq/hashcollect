@@ -16,10 +16,13 @@
 #include "hashlab/hash_murmur3_x64_128.hpp"
 #include "hashlab/hash_xxhash32.hpp"
 #include "hashlab/hash_xxhash64.hpp"
+#include "hashlab/hash_xxh3.hpp"
 #include "hashlab/hash_siphash24.hpp"
 #include "hashlab/checksum_crc32.hpp"
 #include "hashlab/checksum_crc32c.hpp"
+#include "hashlab/checksum_crc16_ccitt.hpp"
 #include "hashlab/checksum_adler32.hpp"
+#include "hashlab/checksum_fletcher32.hpp"
 #include "hashlab/checksum_crc64_ecma.hpp"
 #include "hashlab/hash_pearson64.hpp"
 #include "hashlab/hash_buzhash32.hpp"
@@ -27,6 +30,10 @@
 #include "hashlab/rolling_hash.hpp"
 #include "hashlab/hash_md5.hpp"
 #include "hashlab/hash_sha256.hpp"
+#include "hashlab/hash_sha512.hpp"
+#include "hashlab/hash_blake2b.hpp"
+#include "hashlab/hash_blake2s.hpp"
+#include "hashlab/hash_murmur3_x86_128.hpp"
 
 static std::string hex_arr(auto const& arr) {
 
@@ -51,6 +58,12 @@ int main() {
     std::cout << "  int  : 0x" << hashlab::hex_lower_int((std::uint32_t)fn(bi)) << "\n";
     std::cout << "  float: 0x" << hashlab::hex_lower_int((std::uint32_t)fn(bf)) << "\n";
     std::cout << "  str  : 0x" << hashlab::hex_lower_int((std::uint32_t)fn(bs)) << "\n";
+  };
+  auto show_u16 = [&](const char* name, auto fn) {
+    std::cout << name << "\n";
+    std::cout << "  int  : 0x" << hashlab::hex_lower_int((std::uint16_t)fn(bi)) << "\n";
+    std::cout << "  float: 0x" << hashlab::hex_lower_int((std::uint16_t)fn(bf)) << "\n";
+    std::cout << "  str  : 0x" << hashlab::hex_lower_int((std::uint16_t)fn(bs)) << "\n";
   };
   auto show_u64 = [&](const char* name, auto fn) {
     std::cout << name << "\n";
@@ -81,6 +94,11 @@ int main() {
   std::cout << "  float: 0x" << hex_arr(hashlab::murmur3_x64_128(bf)) << "\n";
   std::cout << "  str  : 0x" << hex_arr(hashlab::murmur3_x64_128(bs)) << "\n";
 
+  std::cout << "Murmur3-x86-128\n";
+  std::cout << "  int  : 0x" << hex_arr(hashlab::murmur3_x86_128(bi)) << "\n";
+  std::cout << "  float: 0x" << hex_arr(hashlab::murmur3_x86_128(bf)) << "\n";
+  std::cout << "  str  : 0x" << hex_arr(hashlab::murmur3_x86_128(bs)) << "\n";
+
   std::cout << "xxHash32\n";
   std::cout << "  int  : 0x" << hashlab::hex_lower_int(hashlab::xxhash32(bi)) << "\n";
   std::cout << "  float: 0x" << hashlab::hex_lower_int(hashlab::xxhash32(bf)) << "\n";
@@ -91,14 +109,28 @@ int main() {
   std::cout << "  float: 0x" << hashlab::hex_lower_int(hashlab::xxhash64(bf)) << "\n";
   std::cout << "  str  : 0x" << hashlab::hex_lower_int(hashlab::xxhash64(bs)) << "\n";
 
+  std::cout << "XXH3-64\n";
+  std::cout << "  int  : 0x" << hashlab::hex_lower_int(hashlab::xxh3_64(bi)) << "\n";
+  std::cout << "  float: 0x" << hashlab::hex_lower_int(hashlab::xxh3_64(bf)) << "\n";
+  std::cout << "  str  : 0x" << hashlab::hex_lower_int(hashlab::xxh3_64(bs)) << "\n";
+
+  std::cout << "XXH3-128\n";
+  std::cout << "  int  : 0x" << hex_arr(hashlab::xxh3_128(bi)) << "\n";
+  std::cout << "  float: 0x" << hex_arr(hashlab::xxh3_128(bf)) << "\n";
+  std::cout << "  str  : 0x" << hex_arr(hashlab::xxh3_128(bs)) << "\n";
+
   std::cout << "SipHash-2-4\n";
   std::cout << "  int  : 0x" << hashlab::hex_lower_int(hashlab::siphash24(bi, sipkey)) << "\n";
   std::cout << "  float: 0x" << hashlab::hex_lower_int(hashlab::siphash24(bf, sipkey)) << "\n";
   std::cout << "  str  : 0x" << hashlab::hex_lower_int(hashlab::siphash24(bs, sipkey)) << "\n";
 
+  show_u16("CRC16-CCITT", [](hashlab::bytespan b) noexcept {
+      return hashlab::crc16_ccitt(b);
+    });
   show_u32("CRC32-IEEE", hashlab::crc32_ieee);
   show_u32("CRC32C", hashlab::crc32c);
   show_u32("Adler32", hashlab::adler32);
+  show_u32("Fletcher32", hashlab::fletcher32);
 
   show_u64("CRC64-ECMA", hashlab::crc64_ecma);
   show_u64("Pearson64", hashlab::pearson64);
@@ -120,6 +152,21 @@ int main() {
   std::cout << "  int  : 0x" << hex_arr(hashlab::sha256(bi)) << "\n";
   std::cout << "  float: 0x" << hex_arr(hashlab::sha256(bf)) << "\n";
   std::cout << "  str  : 0x" << hex_arr(hashlab::sha256(bs)) << "\n";
+
+  std::cout << "SHA-512\n";
+  std::cout << "  int  : 0x" << hex_arr(hashlab::sha512(bi)) << "\n";
+  std::cout << "  float: 0x" << hex_arr(hashlab::sha512(bf)) << "\n";
+  std::cout << "  str  : 0x" << hex_arr(hashlab::sha512(bs)) << "\n";
+
+  std::cout << "BLAKE2b\n";
+  std::cout << "  int  : 0x" << hex_arr(hashlab::blake2b(bi)) << "\n";
+  std::cout << "  float: 0x" << hex_arr(hashlab::blake2b(bf)) << "\n";
+  std::cout << "  str  : 0x" << hex_arr(hashlab::blake2b(bs)) << "\n";
+
+  std::cout << "BLAKE2s\n";
+  std::cout << "  int  : 0x" << hex_arr(hashlab::blake2s(bi)) << "\n";
+  std::cout << "  float: 0x" << hex_arr(hashlab::blake2s(bf)) << "\n";
+  std::cout << "  str  : 0x" << hex_arr(hashlab::blake2s(bs)) << "\n";
 
   return 0;
 }

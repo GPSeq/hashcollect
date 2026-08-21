@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/hashcollect_demo.dir/apps/main.cpp.o -o hashcollect_demo  libhashcollect.a 

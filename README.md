@@ -1,6 +1,7 @@
 # hashcollect
 
-Collection of hash functions and checksums in C++20.
+[![hashcollect](https://github.com/GPSeq/hashcollect/blob/main/.github/workflows/c-cpp.yml/badge.svg?branch=main)](https://github.com/GPSeq/hashcollect/blob/main/.github/workflows/c-cpp.yml)
+Hashcollect contains a collection of hash functions and checksums in C++20.
 
 ## Build the demo
 

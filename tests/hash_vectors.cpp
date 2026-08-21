@@ -42,11 +42,11 @@ static bool expect_hex(const char* name, const std::string& actual, std::string_
 }
 
 template <typename UInt>
-static bool expect_value(const char* name, UInt actual, UInt expected) {
-  if (actual == expected) return true;
+static bool expect_value(const char* name, UInt actual, std::uint64_t expected) {
+  const auto actual_value = static_cast<std::uint64_t>(actual);
+  if (actual_value == expected) return true;
   std::cerr << name << " mismatch\nexpected: 0x" << std::hex
-            << static_cast<std::uint64_t>(expected) << "\nactual  : 0x"
-            << static_cast<std::uint64_t>(actual) << std::dec << '\n';
+            << expected << "\nactual  : 0x" << actual_value << std::dec << '\n';
   return false;
 }
 

@@ -37,7 +37,7 @@ include(FetchContent)
 
 FetchContent_Declare(
   hashcollect
-  GIT_REPOSITORY https://github.com/lutfia95/hashcollect.git
+  GIT_REPOSITORY https://github.com/GPSeq/hashcollect
   GIT_TAG main
 )
 
